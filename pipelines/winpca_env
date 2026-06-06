@@ -1,0 +1,7 @@
+sbatch --account=nn10082k --time=4:00:00 --mem=8G --cpus-per-task=1 \
+    --wrap="module load Miniconda3/23.10.0-1 && \
+    source \${EBROOTMINICONDA3}/bin/activate && \
+    conda clean --index-cache --yes && \
+    conda create --yes \
+    --prefix /cluster/work/users/melatag/pipelines/work/conda/winpca_env \
+    'conda-forge::scikit-allel' 'numpy=1.25' pandas numba plotly"
