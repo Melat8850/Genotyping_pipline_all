@@ -1,0 +1,62 @@
+################# Shared ##################
+metadata: /cluster/work/users/melatag/pipelines/metadata_filtered.csv
+ref_genome: /cluster/projects/nn10082k/ref/house_sparrow_genome_assembly-18-11-14_masked.fa
+ref_genome_index: /cluster/projects/nn10082k/ref/house_sparrow_genome_assembly-18-11-14_masked.fa.fai
+ref_gff: /cluster/projects/nn10082k/ref/house_sparrow.gff 
+ref_ploidy: 
+ref_scaffold_name: "scaffold" 
+ref_chr_renames_tsv: /cluster/work/users/melatag/pipelines/examples/chrom_conversion.tsv 
+
+########## vd: VCF Diagnostics ############
+vd_vcf: 
+vd_snpden_binsize: 100000
+vd_n_sampled_sites: 100000
+
+######### ps: Population Structure ########
+ps_vcf: /cluster/work/users/melatag/pipelines/genome_phased.vcf.gz
+ps_exclude_chroms: [chrUn, chrZ, mtDNA ]
+ps_prune_window_kb: 50
+ps_prune_step_snps: 10
+ps_prune_threshold: 0.1
+ps_admixture_kmin: 1
+ps_admixture_kmax: 3
+ps_aim_variance_threshold: 0.05
+ps_fst_populations: [ZAF, NOR, IND ]
+
+######### ch: Consensus Haplotree #########
+ch_cramdir: 
+ch_genome_region: 
+ch_filt_indelgap: 5
+ch_filt_inclusions: 'QUAL>20 & FMT/DP>5 & FMT/DP<75'
+ch_mafft_iterations: 1000
+ch_iqtree_bootstraps: 1000
+
+########## pw: Popgen Windows #############
+pw_vcfdir: 
+pw_sliding_window: 100000
+pw_step_size: 10000
+pw_min_sites: 10
+pw_input_format: phased
+pw_compare_species: true
+
+######### hs: Haplotype Selection #########
+hs_vcfdir: /cluster/work/users/melatag/pipelines/phased_only 
+hs_is_polarised: false
+hs_populations: [ZAF, NOR, IND  ]
+hs_ihs_freqbin: 1
+hs_cand_pval: 0.05
+hs_cand_window: 1E5
+hs_cand_overlap: 1E4
+hs_cand_min_n_mrk: 3
+hs_cand_min_n_extr_mrk: 3
+hs_cand_min_perc_extr_mrk: 0
+hs_plot_main_width_mm: 120
+hs_plot_cand_width_mm: 120
+hs_plot_height_mm: 30
+
+######## ld: Linkage Disequilibrium #######
+ld_vcf: 
+ld_thin: 0.5
+ld_window: 100
+ld_window_kb: 1000
+ld_bin_size: 1000
